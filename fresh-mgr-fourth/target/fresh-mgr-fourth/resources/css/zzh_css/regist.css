@@ -1,0 +1,56 @@
+#sec_form{
+	padding-top: 20px;
+}
+.inner_form{
+	width: 330px;
+	margin: 0 auto;
+}
+
+.inner_form h2{
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+	color: #333;
+	margin-bottom: 10px;
+}
+.sec_form_item{
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding: 15px 0;
+}
+.valid_item{
+	width: 190px;
+}
+.valid_btn{
+	display: block;
+	height: 54px;
+	width: 130px;
+	background-color: #666666;
+	border: 0px none;
+	font-weight: bold;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 5px;
+}
+.sec_form_item input{
+	width: 100%;
+	height: 24px;
+	border: 0px none;
+	padding: 0px 24px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+.sec_reg_click{
+	height: 35px;
+	line-height: 35px;
+	color: #666;
+	margin-bottom: 10px;
+}
+.sec_reg_click a{
+	color: #06c;
+}
+.sec_reg_click a:hover{
+	color: #f60;
+}

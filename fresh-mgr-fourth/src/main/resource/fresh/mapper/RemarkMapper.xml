@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgc.fresh.mapper.RemarkMapper">
+<select id="queryAllRemark" resultType="com.kgc.fresh.beans.Remark">
+
+        select r.id,
+        r.productId,
+        r.userId,
+        r.content,
+        r.type,
+        r.createTime,
+        r.lastModfiyTime
+        from remarks r,user u where r.userId = u.userId and r.productId=#{productId}
+    </select>
+
+</mapper>

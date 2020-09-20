@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgc.fresh.mapper.ShoppingCategoryMapper">
+<select id="queryAllCategory" resultType="com.kgc.fresh.beans.ShoppingCategory">
+    select * from shopping_category;
+
+
+
+</select>
+
+</mapper>

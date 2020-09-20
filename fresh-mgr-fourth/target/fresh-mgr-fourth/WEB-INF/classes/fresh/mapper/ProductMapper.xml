@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kgc.fresh.mapper.ProductMapper">
+
+
+<select id="queryAllProduct" resultType="com.kgc.fresh.beans.Product">
+    select * from product;
+</select>
+
+
+    <select id="queryProduct" resultType="com.kgc.fresh.beans.Product">
+        select p.id,
+        p.name,
+        p.category,
+        p.remarkId,
+        p.price,
+        p.stock,
+        p.image,
+        p.text,
+        p.description,
+        p.remarkNum,
+        p.saleNum,
+        p.status,
+        p.addDate,
+       p.createDate,
+        s.name
+        from product p,shopping_category s
+        <where>
+          s.id = p.category
+            <if test="id != null">
+             and   p.id = #{id}
+            </if>
+        </where>
+    </select>
+
+
+
+<select id="queryAllCategory" resultType="com.kgc.fresh.beans.Product">
+select p.id,
+    p.name,
+    p.category,
+    p.remarkId,
+    p.price,
+    p.stock,
+    p.image,
+    p.text,
+    p.description,
+    p.remarkNum,
+    p.saleNum,
+    p.status,
+    p.addDate,
+    p.createDate,
+    s.name
+    from product p,shopping_category s
+    <where>
+        s.id = p.category
+        <if test="category != null and category !=0 ">
+        and p.category = #{category}
+        </if>
+
+
+    </where>
+
+</select>
+
+<select id="queryAllCategoryCx" resultType="com.kgc.fresh.beans.Product">
+
+    select p.id,
+    p.name,
+    p.category,
+    p.remarkId,
+    p.price,
+    p.stock,
+    p.image,
+    p.text,
+    p.description,
+    p.remarkNum,
+    p.saleNum,
+    p.status,
+    p.addDate,
+    p.createDate,
+    s.name
+    from product p,shopping_category s
+    <where>
+        <if test="name != null and name !='' ">
+            p.name like concat('%',#{name},'%')
+        </if>
+        and p.category = s.id
+        <if test="categoryId != null and categoryId !='0' ">
+            and p.category = #{categoryId}
+        </if>
+
+        <if test=" price11 != null and price11 != ''  and  price12 != null and price12 != ''" >
+            and p.price between #{price11} and #{price12}
+        </if>
+
+    </where>
+
+</select>
+
+<select id="queryAllTime" resultType="com.kgc.fresh.beans.Product"   >
+   select p.id,
+        p.name,
+        p.category,
+        p.remarkId,
+        p.price,
+        p.stock,
+        p.image,
+        p.text,
+        p.description,
+        p.remarkNum,
+        p.saleNum,
+        p.status,
+        p.addDate,
+        p.createDate,
+        s.name
+    from product p,shopping_category s where p.category = s.id and s.id=#{categoryId}
+
+
+     ORDER BY   addDate  desc;
+</select>
+
+
+<select id="queryAllAddTime" resultType="com.kgc.fresh.beans.Product"  >
+     select p.id,
+        p.name,
+        p.category,
+        p.remarkId,
+        p.price,
+        p.stock,
+        p.image,
+        p.text,
+        p.description,
+        p.remarkNum,
+        p.saleNum,
+        p.status,
+        p.addDate,
+        p.createDate,
+        s.name
+    from product p,shopping_category s
+    <where>
+        <if test="name != null and name != ''">
+            p.name like concat('%',#{name},'%')
+        </if>
+        and p.category = s.id
+        <if test="categoryId != null and categoryId !='0' ">
+            and p.category = #{categoryId}
+        </if>
+
+    </where>
+
+
+
+</select>
+
+
+
+
+
+
+<!--
+<select id="queryAllSc" resultType="com.kgc.fresh.beans.Product">
+    select *
+    from remarks
+    <where>
+        <if test="productId != null  and productId != ''">
+            productId = #{productId}
+        </if>
+    </where>
+
+</select>
+-->
+
+
+
+</mapper>
